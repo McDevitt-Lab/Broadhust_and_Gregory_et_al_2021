@@ -1,0 +1,26 @@
+Taxon,scientific_name,species,C01,C02,C03,C04,C05,C06,C07,C08,C09,C10,C11,C12,C13,C14,C15
+Carnivora,Neovison vison,American mink,12197,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rodentia,Myodes glareolus,Bank vole,5319,0,0,0,0,7166,0,0,9242,0,0,3,2861,0,0
+Rodentia,Rattus norvegicus,Brown rat,65431,4069,2165,2401,6744,0,2412,0,2534,2,2865,24122,39100,1484,2
+Eulipotyphla,Sorex araneus,Common shrew,1332,0,0,0,469,0,0,0,7862,0,2936,0,0,0,0
+Rodentia,Sciurus carolinensis,Eastern gray squirrel,6754,0,0,0,3693,0,0,0,0,0,0,3328,3246,885,0
+Rodentia,Castor fiber,Eurasian beaver,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Carnivora,Lutra lutra,Eurasian otter,2,0,0,0,0,0,0,0,0,0,0,5495,0,0,0
+Eulipotyphla,Sorex minutus,Eurasian pygmy shrew,0,2833,0,0,0,0,0,0,0,0,0,0,3389,0,0
+Eulipotyphla,Neomys fodiens,Eurasian water shrew,18376,4013,0,0,2,0,0,0,0,5057,1148,0,0,0,0
+Carnivora,Meles meles,European badger,2663,5936,3288,0,0,0,1701,0,13994,0,0,0,0,7,6034
+Lagomorpha,Lepus europaeus ,European brown hare,179,0,0,0,6,0,0,0,0,68,0,0,0,5703,0
+Eulipotyphla,Talpa europaea,European mole,0,0,0,0,0,0,0,0,0,0,0,0,1932,0,0
+Carnivora,Mustela putorius,European polecat,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Lagomorpha,Oryctolagus cuniculus,European rabbit,0,0,9815,8927,23561,4294,5848,0,0,0,0,0,4449,177,0
+Rodentia,Arvicola amphibius,European water vole,2480,0,18811,4936,3422,0,2,0,9309,6122,0,6,7,0,0
+Artiodactyla,Dama dama,Fallow deer,0,2,5,60955,2,0,0,0,0,0,2,0,0,0,0
+Rodentia,Microtus agrestis,Field vole,4036,3059,16689,7273,4204,0,5108,1975,6,8084,1574,13229,1782,2610,0
+Carnivora,Mustela nivalis,Least weasel,0,1993,0,0,0,0,0,0,0,0,0,0,0,0,0
+Carnivora,Vulpes vulpes,Red fox,0,0,0,0,0,0,0,0,0,0,0,0,2704,0,0
+Rodentia,Sciurus vulgaris,Red squirrel ,0,0,0,362,0,0,0,0,0,0,0,0,0,0,0
+Artiodactyla,Muntiacus reevesi,Reeves's muntjac,0,0,0,0,0,0,0,0,0,0,0,0,1910,5461,0
+Artiodactyla,Capreolus capreolus,Roe deer,0,0,0,0,0,0,0,0,0,0,3000,0,0,0,0
+Carnivora,Mustela erminea,Stoat,0,0,7136,20512,0,0,0,0,0,0,0,0,0,0,0
+Rodentia,Apodemus sylvaticus,Wood mouse,0,0,0,0,0,0,0,0,5827,0,0,0,0,0,0
+Rodentia,Apodemus flavicollis,Yellow-necked mouse,0,4660,0,0,0,0,0,0,0,0,0,0,0,0,0
