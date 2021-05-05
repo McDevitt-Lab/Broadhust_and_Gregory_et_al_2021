@@ -1,0 +1,132 @@
+# Sequence processing was performed using the Obitools pipeline
+# Performed on Linux operating system
+# Shown using library 1 sequence files. The same process is applied to library 2 sequence files.
+# Forward reads here named lib1_S1_l001_R1_001.fastq
+# Reverse reads here named lib1_S1_l001_R2_001.fastq
+
+### unzip raw sequence fastq files
+
+gzip -d lib1_S1_L001_R1_001.fastq.gz
+gzip -d lib1_S1_L001_R2_001.fastq.gz
+
+### 1) Run FastQC to check quality of sequences
+
+fastqc lib1_S1_L001_R1_001.fastq
+fastqc lib1_S1_L001_R2_001.fastq
+
+# Quality is high and does not need trimming
+
+### 2) Paired-end alignment: merges forward and reverse reads, then splits in "Good" and "Bad" based on an alignment score cut-off of 40
+
+~path_to_obitools/obitools # activates obitools
+
+illuminapairedend -r lib1_S1_L001_R1_001.fastq lib1_S1_L001_R2_001.fastq | obiannotate -S goodali:'"Good_EWT1" if score>40.00 else "Bad_EWT1"' | obisplit -t goodali
+
+# Timing is approx 7.5 hrs
+
+
+### 3) Demultiplex samples using obitools ngsfilter
+ngsfilter -t ngsfilter_EWT1.txt --fasta-output -u unidentified_EWT1.fasta Good_EWT1.fastq > EWT1.filtered.fasta
+
+# Timing is approx 2.5hrs
+
+
+### 4) Filter the sequences with length between 140 and 190 bp and remove 'N' bases
+
+obigrep -p 'seq_length>140' -p 'seq_length<190' -s '^[ACGT]+$' DEWT1.filtered.fasta > EWT1.filtered_length.fasta
+
+# Timing is approx 30m
+
+
+### 5. Group the unique sequences
+
+obiuniq -m sample EWT1.filtered_length.fasta > EWT1.unique.fasta
+
+# Timing is approx 23m
+
+
+### 6) Exchange the identifier to a short index
+
+obiannotate --seq-rank EWT1.unique.fasta | obiannotate --set-identifier '"'EWT1'_%09d" % seq_rank' > EWT1.fasta
+
+# Timing is approx 50s
+
+
+### 7) Detecting chimeras
+
+# Chimeras are detected using vsearch, but the files need to be reformatted using a custom R script written by Dr Owen Wangensteen
+# The custom R script can be downloaded from - https://github.com/metabarpark/R_scripts_metabarpark
+
+Rscript owi_obifasta2vsearch -i EWT1.fasta -o EWT1.vsearch.fasta
+
+# Timing is approx 10s
+
+
+### 8) Run UCHIME de novo in VSEARCH (in Owenia)
+vsearch --uchime_denovo EWT1.vsearch.fasta --sizeout --minh 0.90 --nonchimeras EWT1.nonchimeras.fasta --chimeras EWT1.chimeras.fasta --uchimeout EWT1.uchimeout.txt
+
+# Timing is approx 30m
+
+
+### 9) Clustering using SWARM
+
+swarm -d 3 -z -t 10 -o EWT1_d3_SWARM3nc_output -s EWT1_d3_SWARM3nc_stats -w EWT1_d3_SWARM3nc_seeds.fasta EWT1.nonchimeras.fasta
+
+# Timimg is approx 1m
+
+
+### 10) Get the tab file of sequence counts 
+
+obitab -o EWT1.fasta >  EWT1.new.tab
+
+# Timing is approx 30s
+
+
+##### 11) Taxonomic assignment _(ecotag)
+
+#### 11.1) Recount after SWARM
+
+## Get tab file of sequence counts and clarify correct sequence counts are recorded using a custom script by Dr Owen Wangensteen
+# The custom R script can be downloaded from - https://github.com/metabarpark/R_scripts_metabarpark
+
+owi_recount_swarm EWT1_d3_SWARM3nc_output EWT1.new.tab
+
+# Timing is approx 1m
+
+#### 11.2) Select only non singleton MOTUs
+
+## Open EWT1_d3_SWARM3nc_seeds.fasta in vim. Add a space in every header by changing “;size=” by “; size=”.
+
+vim EWT1_d3_SWARM3nc_seeds.fasta
+
+#### 11.2) Select only non singletons MOTUs
+
+obigrep -p 'size>1' EWT1_d3_SWARM3nc_seeds.fasta > EWT1_d3_seeds_nonsingletons.fasta
+
+# Timing is approx 1m
+
+#### 11.3) Annotate with ecotag
+
+ecotag -d Taxo_May2018/Eukarya -R Taxo_2020/db_Eukarya_Nov_20.fasta EWT1_d3_seeds_nonsingletons.fasta > EWT1_d3_ecotag.fasta
+
+# Timing is approx 30m
+
+
+### 12) Add high level taxa 
+## Get tab file of sequence counts and clarify correct sequence counts are recorded using a custom script by Dr Owen Wangensteen
+# The custom R script can be downloaded from - https://github.com/metabarpark/R_scripts_metabarpark
+
+Rscript owi_add_taxonomy EWT1_d3_ecotag.fasta
+
+# Timing is approx 5m
+
+
+### 13) Combine Ecotag and abundance files
+
+owi_combine -i EWT1_d3_ecotag.fasta.annotated.csv -a EWT1_d3_SWARM3nc_output.counts.csv -o EWT1_d3_MOTUs.csv
+
+# Timing is approx 2m
+
+# The output is two .csv files that contain a list of sequence counts for each MOTU in each sample
+
+# Rows are MOTUs
