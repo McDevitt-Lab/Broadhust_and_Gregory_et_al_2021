@@ -1,0 +1,26 @@
+Taxon,scientific_name,species,B01,B02,B03,B04,B05,B06,B07,B08,B09,B10,B11,B12,B13,B14,B15
+Carnivora,Neovison vison,American mink,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rodentia,Myodes glareolus,Bank vole,0,2024,18584,75878,6148,0,13051,0,0,0,5403,0,8866,0,0
+Rodentia,Rattus norvegicus,Brown rat,0,0,2,10,0,0,8077,0,45384,0,20961,0,5665,5666,0
+Eulipotyphla,Sorex araneus,Common shrew,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rodentia,Sciurus carolinensis,Eastern gray squirrel,0,7584,2,17185,0,7,81085,0,5528,2921,2336,0,9677,14705,0
+Rodentia,Castor fiber,Eurasian beaver,131087,384162,278101,52192,0,0,0,0,0,0,0,0,0,0,0
+Carnivora,Lutra lutra,Eurasian otter,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Eulipotyphla,Sorex minutus,Eurasian pygmy shrew,0,0,5134,0,0,0,0,0,0,0,0,0,0,0,0
+Eulipotyphla,Neomys fodiens,Eurasian water shrew,0,0,0,5164,0,0,390,0,0,0,6610,0,0,0,0
+Carnivora,Meles meles,European badger,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Lagomorpha,Lepus europaeus,European brown hare,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Eulipotyphla,Talpa europaea,European mole,0,0,0,0,0,6,18863,5945,0,0,0,0,0,0,0
+Carnivora,Mustela putorius,European polecat,0,0,0,0,0,0,0,0,0,0,0,0,725,0,0
+Lagomorpha,Oryctolagus cuniculus,European rabbit,0,0,0,1961,0,0,3704,26904,0,0,30003,0,0,0,0
+Rodentia,Arvicola amphibius,European water vole,0,0,6839,15,0,0,23,0,0,0,0,0,9483,10576,1765
+Artiodactyla,Dama dama,Fallow deer,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rodentia,Microtus agrestis,Field vole,0,7099,19932,12,0,1193,8070,0,5323,297,939,6056,2,29923,0
+Carnivora,Mustela nivalis,Least weasel,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Carnivora,Vulpes vulpes,Red fox,0,0,0,1586,0,0,0,0,0,0,0,0,0,0,0
+Rodentia,Sciurus vulgaris,Red squirrel ,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Artiodactyla,Muntiacus reevesi,Reeves's muntjac,0,5,34,322026,3,14,50017,96,25333,0,2235,0,0,0,0
+Artiodactyla,Capreolus capreolus,Roe deer,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Carnivora,Mustela erminea,Stoat,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Rodentia,Apodemus sylvaticus,Wood mouse,0,4,13564,11251,0,0,8,0,3119,0,2,13390,5,0,0
+Rodentia,Apodemus flavicollis,Yellow-necked mouse,0,0,0,0,0,0,0,974,0,0,0,0,0,0,0

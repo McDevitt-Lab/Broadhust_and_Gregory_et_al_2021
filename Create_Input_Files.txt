@@ -1,0 +1,37 @@
+Steps to create input files for R script
+
+## Change replicate names from
+
+Library 1
+X3-x79 -> C1.1-C15.5
+
+Library 2
+X82-x158 -> B1.1-B15.5
+
+
+## Reduce number of columns
+
+Keep Replicates
+Keep Species names
+Keep order names (rename column Taxon and place in the first column)
+Delete all others
+
+
+## Add Common name column
+
+EWT1_sites.csv + EWT2_sites.csv
+
+## Change replicates to sites
+
+Calculate sum of reads detected for each species per each site in all replicates
+This is done by hand in Excel by adding a new column after each set of replicates and using the =sum function 
+occupancy_detection.csv
+
+
+## From filtered csv file create an excel file by
+
+Creating matrix with replicates across the top and sites along the left side
+Changing read detections to presence/absence
+Do this for each species separately as seen in pa_essex.xslx
+
+## Matrix then transposed and combined to create one csv file 
